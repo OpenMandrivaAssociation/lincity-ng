@@ -1,5 +1,5 @@
 %define name 	lincity-ng
-%define version 1.1.0
+%define version 1.1.1
 %define release 1
 %define	Summary	Lincity - A City Simulation Game
 
@@ -34,6 +34,7 @@ a new iso-3D graphics engine, with a completely redone and modern GUI.
 
 %build
 %configure2_5x	--bindir=%{_gamesbindir} \
+		--datadir=%{_gamesdatadir} \
 		--with-gzip \
 		--with-svga \
 		--with-x \
@@ -52,18 +53,10 @@ convert -size 16x16 data/%{name}.png %{buildroot}%{_liconsdir}/%{name}.png
 
 %find_lang %{name}
 
-# menu
-mkdir -p %{buildroot}%{_menudir}
-cat << EOF >> %{buildroot}%{_menudir}/%{name}
-?package(%{name}):command="%{_gamesbindir}/%{name}" icon="%{name}.png" \
-               needs="X11" section="More Applications/Games/Strategy" title="Lincity" \
-               longtitle="%{Summary}" xdg="true"
-EOF
-
 desktop-file-install --vendor="" \
   --remove-category="Application" \
   --add-category="StrategyGame" \
-  --add-category="X-MandrivaLinux-MoreApplications-Games-Strategy" \
+  --add-category="Game" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
 %clean
@@ -81,10 +74,7 @@ rm -rf %{buildroot}
 %{_gamesbindir}/*
 %{_datadir}/pixmaps/*
 %{_datadir}/applications/*
-%{_datadir}/%{name}
-%{_menudir}/%{name}
+%{_gamesdatadir}/%{name}
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
 %{_liconsdir}/%{name}.png
-
-
