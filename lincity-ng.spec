@@ -53,11 +53,15 @@ convert -size 16x16 data/%{name}.png %{buildroot}%{_liconsdir}/%{name}.png
 
 %find_lang %{name}
 
-desktop-file-install --vendor="" \
+mkdir -p %buildroot%_datadir/applications
+desktop-file-install --vendor="" --delete-original \
   --remove-category="Application" \
   --add-category="StrategyGame" \
   --add-category="Game" \
-  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
+  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_gamesdatadir}/applications/*
+
+mkdir -p %buildroot%_datadir/pixmaps
+mv %buildroot%{_gamesdatadir}/pixmaps/* %buildroot%_datadir/pixmaps
 
 %clean
 rm -rf %{buildroot}
