@@ -63,6 +63,8 @@ desktop-file-install --vendor="" --delete-original \
 mkdir -p %buildroot%_datadir/pixmaps
 mv %buildroot%{_gamesdatadir}/pixmaps/* %buildroot%_datadir/pixmaps
 
+rm -fr %buildroot%_gamesdatadir/doc
+
 %clean
 rm -rf %{buildroot}
 
