@@ -8,7 +8,8 @@ Name:		%{name}
 Version:	%{version}
 Release:	%mkrel %{rel}
 Source0:	http://download.berlios.de/lincity-ng/%{name}-%{version}.tar.bz2
-License:	GPL
+Patch0:		lincity-ng-1.1.2-fix-desktop.patch
+License:	GPLv2+
 URL:		http://lincity-ng.berlios.de/
 Group:		Games/Strategy
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -31,6 +32,7 @@ a new iso-3D graphics engine, with a completely redone and modern GUI.
 
 %prep
 %setup -q
+%patch0 -p0
 
 %build
 %configure2_5x	--bindir=%{_gamesbindir} \
@@ -55,9 +57,6 @@ convert -size 16x16 data/%{name}.png %{buildroot}%{_liconsdir}/%{name}.png
 
 mkdir -p %buildroot%_datadir/applications
 desktop-file-install --vendor="" --delete-original \
-  --remove-category="Application" \
-  --add-category="StrategyGame" \
-  --add-category="Game" \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_gamesdatadir}/applications/*
 
 mkdir -p %buildroot%_datadir/pixmaps
