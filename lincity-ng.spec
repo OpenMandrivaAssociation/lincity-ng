@@ -1,12 +1,12 @@
 %define name 	lincity-ng
-%define version 1.1.1
-%define release 1
+%define version 1.1.2
+%define rel 1
 %define	Summary	Lincity - A City Simulation Game
 
 Summary:	%{Summary}
 Name:		%{name}
 Version:	%{version}
-Release:	%mkrel %{release}
+Release:	%mkrel %{rel}
 Source0:	http://download.berlios.de/lincity-ng/%{name}-%{version}.tar.bz2
 License:	GPL
 URL:		http://lincity-ng.berlios.de/
