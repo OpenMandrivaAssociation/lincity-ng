@@ -16,7 +16,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ImageMagick
 BuildRequires:	jam
 BuildRequires:	zlib-devel libxml2-devel
-BuildRequires:	XFree86-devel
+BuildRequires:	X11-devel
 BuildRequires:	SDL-devel SDL_mixer-devel SDL_image-devel SDL_ttf-devel libSDL_gfx-devel 
 BuildRequires:	libphysfs-devel desktop-file-utils
 Obsoletes:	lincity
