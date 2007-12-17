@@ -12,7 +12,6 @@ Patch0:		lincity-ng-1.1.2-fix-desktop.patch
 License:	GPLv2+
 URL:		http://lincity-ng.berlios.de/
 Group:		Games/Strategy
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	ImageMagick
 BuildRequires:	jam
 BuildRequires:	zlib-devel libxml2-devel
