@@ -9,6 +9,7 @@ Version:	%{version}
 Release:	%mkrel %{rel}
 Source0:	http://download.berlios.de/lincity-ng/%{name}-%{version}.tar.bz2
 Patch0:		lincity-ng-1.1.2-fix-desktop.patch
+Patch1:		lincity-ng-2.0-fix-str-fmt.patch
 License:	GPLv2+
 URL:		http://lincity-ng.berlios.de/
 Group:		Games/Strategy
@@ -33,6 +34,7 @@ a new iso-3D graphics engine, with a completely redone and modern GUI.
 %prep
 %setup -q
 %patch0 -p0
+%patch1 -p0
 
 %build
 %configure2_5x	--bindir=%{_gamesbindir} \
@@ -41,7 +43,7 @@ a new iso-3D graphics engine, with a completely redone and modern GUI.
 		--with-svga \
 		--with-x \
 		--disable-rpath
-jam
+jam %_smp_mflags
 
 %install
 rm -fr %{buildroot}
