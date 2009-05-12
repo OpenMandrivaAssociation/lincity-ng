@@ -1,6 +1,6 @@
 %define name 	lincity-ng
 %define version 2.0
-%define rel 1
+%define rel 2
 %define	Summary	Lincity - A City Simulation Game
 
 Summary:	%{Summary}
@@ -12,7 +12,7 @@ Patch0:		lincity-ng-1.1.2-fix-desktop.patch
 Patch1:		lincity-ng-2.0-fix-str-fmt.patch
 License:	GPLv2+
 URL:		http://lincity-ng.berlios.de/
-Group:		Games/Strategy
+Group:		Games/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	imagemagick
 BuildRequires:	jam
