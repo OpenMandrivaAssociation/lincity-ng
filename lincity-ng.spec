@@ -1,6 +1,6 @@
 %define name 	lincity-ng
 %define version 2.0
-%define rel 2
+%define rel 3
 %define	Summary	Lincity - A City Simulation Game
 
 Summary:	%{Summary}
