@@ -1,12 +1,7 @@
-%define name 	lincity-ng
-%define version 2.0
-%define rel 3
-%define	Summary	Lincity - A City Simulation Game
-
-Summary:	%{Summary}
-Name:		%{name}
-Version:	%{version}
-Release:	%mkrel %{rel}
+Summary:	Lincity - A City Simulation Game
+Name:		lincity-ng
+Version:	2.0
+Release:	%mkrel 4
 Source0:	http://download.berlios.de/lincity-ng/%{name}-%{version}.tar.bz2
 Patch0:		lincity-ng-1.1.2-fix-desktop.patch
 Patch1:		lincity-ng-2.0-fix-str-fmt.patch
