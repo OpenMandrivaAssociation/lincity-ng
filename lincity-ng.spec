@@ -55,6 +55,9 @@ convert -size 32x32 data/%{name}.png %{buildroot}%{_iconsdir}/%{name}.png
 mkdir -p %{buildroot}%{_liconsdir}
 convert -size 16x16 data/%{name}.png %{buildroot}%{_liconsdir}/%{name}.png
 
+mkdir -p %buildroot%_datadir/applications
+mv %{buildroot}%{_gamesdatadir}/applications/* %{buildroot}%{_datadir}/applications
+
 %find_lang %{name}
 
 mkdir -p %buildroot%_datadir/pixmaps
