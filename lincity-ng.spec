@@ -1,7 +1,7 @@
 Summary:	Lincity - A City Simulation Game
 Name:		lincity-ng
 Version:	2.0
-Release:	%mkrel 4
+Release:	%mkrel 5
 Source0:	http://download.berlios.de/lincity-ng/%{name}-%{version}.tar.bz2
 Patch0:		lincity-ng-1.1.2-fix-desktop.patch
 Patch1:		lincity-ng-2.0-fix-str-fmt.patch
@@ -11,10 +11,15 @@ Group:		Games/Other
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires:	imagemagick
 BuildRequires:	jam
-BuildRequires:	zlib-devel libxml2-devel
-BuildRequires:	X11-devel
-BuildRequires:	SDL-devel SDL_mixer-devel SDL_image-devel SDL_ttf-devel libSDL_gfx-devel 
-BuildRequires:	libphysfs-devel desktop-file-utils
+BuildRequires:	mesagl-devel
+BuildRequires:	SDL-devel
+BuildRequires:	SDL_gfx-devel
+BuildRequires:	SDL_image-devel
+BuildRequires:	SDL_mixer-devel
+BuildRequires:	SDL_ttf-devel
+BuildRequires:	libphysfs-devel
+BuildRequires:	libxml2-devel
+BuildRequires:	zlib-devel
 Obsoletes:	lincity
 Provides:	lincity
 
@@ -51,10 +56,6 @@ mkdir -p %{buildroot}%{_liconsdir}
 convert -size 16x16 data/%{name}.png %{buildroot}%{_liconsdir}/%{name}.png
 
 %find_lang %{name}
-
-mkdir -p %buildroot%_datadir/applications
-desktop-file-install --vendor="" --delete-original \
-  --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_gamesdatadir}/applications/*
 
 mkdir -p %buildroot%_datadir/pixmaps
 mv %buildroot%{_gamesdatadir}/pixmaps/* %buildroot%_datadir/pixmaps
