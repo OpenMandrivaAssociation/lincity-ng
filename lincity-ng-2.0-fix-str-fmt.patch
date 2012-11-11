@@ -1,0 +1,22 @@
+--- src/lincity/fileutil.cpp.str	2009-01-26 22:35:20.000000000 -0500
++++ src/lincity/fileutil.cpp	2009-01-26 22:35:45.000000000 -0500
+@@ -498,7 +498,7 @@
+ 
+ void malloc_failure(void)
+ {
+-    printf(_("Out of memory: malloc failure\n"));
++    printf("%s",_("Out of memory: malloc failure\n"));
+     exit(1);
+ }
+ 
+--- src/lincity-ng/Dialog.cpp.str	2009-01-26 22:36:00.000000000 -0500
++++ src/lincity-ng/Dialog.cpp	2009-01-26 22:36:19.000000000 -0500
+@@ -378,7 +378,7 @@
+         setParagraphN( "statistic_text", line++, outf );
+     }
+     if (sustain_flag){
+-	    snprintf (outf, maxlength, _("Economy is sustainable"));
++	    snprintf (outf, maxlength, "%s", _("Economy is sustainable"));
+         setParagraphN( "statistic_text", line++, outf );
+     }
+     snprintf (outf, maxlength, _("Population  %d  of which  %d  are not housed.")

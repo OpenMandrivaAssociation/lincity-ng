@@ -1,0 +1,17 @@
+--- lincity-ng.desktop.orig	2009-01-25 22:21:28.000000000 +0200
++++ lincity-ng.desktop	2009-10-17 22:25:35.976529046 +0300
+@@ -1,12 +1,10 @@
+ [Desktop Entry]
+ Type=Application
+-Version=1.0
+-Encoding=UTF-8
+ Name=Lincity-NG
+ GenericName=City Simulation Game
+ GenericName[de]=Stadtsimulationsspiel
+-Comment=Plan and Build a city and take care of transport, economics, electricityand others.
+-Icon=lincity-ng.png
++Comment=Plan and Build a city and take care of transport, economics, electricity and others.
++Icon=lincity-ng
+ Exec=lincity-ng
+ Terminal=false
+ StartupNotify=false
