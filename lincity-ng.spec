@@ -1,7 +1,7 @@
 Summary:	Lincity - A City Simulation Game
 Name:		lincity-ng
 Version:	2.0
-Release:	%mkrel 6
+Release:	7
 Source0:	http://freefr.dl.sourceforge.net/project/lincity-ng.berlios/lincity-ng-%version.tar.bz2
 Patch0:		lincity-ng-1.1.2-fix-desktop.patch
 Patch1:		lincity-ng-2.0-fix-str-fmt.patch
