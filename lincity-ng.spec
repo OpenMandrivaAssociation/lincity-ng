@@ -22,6 +22,7 @@ BuildRequires:	pkgconfig(physfs)
 BuildRequires:	pkgconfig(zlib)
 # for compress .wav files
 BuildRequires:	vorbis-tools
+BuildRequires:       xsltproc
 
 Obsoletes:	lincity
 Provides:	lincity
