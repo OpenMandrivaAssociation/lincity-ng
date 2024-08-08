@@ -1,0 +1,29 @@
+From 93ee4852afff71995b765b10722ea48acb60c175 Mon Sep 17 00:00:00 2001
+From: Fabio Pedretti <pedretti.fabio@gmail.com>
+Date: Sun, 21 Jul 2024 19:23:11 +0200
+Subject: [PATCH] cmake: specify README.md absolute location
+
+Fixes the following build error:
+
+CMake Error at /usr/share/cmake-3.28/Modules/CPack.cmake:685 (message):
+  CPack readme resource file: "README.md" could not be found.
+Call Stack (most recent call first):
+  /usr/share/cmake-3.28/Modules/CPack.cmake:691 (cpack_check_file_exists)
+  CMakeLists.txt:130 (include)
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 6a2e28d4..856e3fa4 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -123,7 +123,7 @@ endif()
+ set(CPACK_GENERATOR TGZ ZIP)
+ set(CPACK_PACKAGE_ICON data/lincity-ng.png)
+ set(CPACK_PACKAGE_CHECKSUM SHA256)
+-set(CPACK_RESOURCE_FILE_README README.md)
++set(CPACK_RESOURCE_FILE_README ${CMAKE_SOURCE_DIR}/README.md)
+ set(CPACK_SOURCE_GENERATOR TGZ)
+ set(CPACK_SOURCE_IGNORE_FILES ${CMAKE_BINARY_DIR}/ ${CMAKE_SOURCE_DIR}/\\\\.git/ ${CMAKE_SOURCE_DIR}/build.*/)
+ set(CPACK_PACKAGE_VERSION ${FULL_PROJECT_VERSION})
