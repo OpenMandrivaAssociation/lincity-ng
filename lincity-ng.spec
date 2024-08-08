@@ -1,24 +1,28 @@
 Summary:	Lincity - A City Simulation Game
 Name:		lincity-ng
-Version:	2.0
-Release:	7
-Source0:	http://freefr.dl.sourceforge.net/project/lincity-ng.berlios/lincity-ng-%version.tar.bz2
-Patch0:		lincity-ng-1.1.2-fix-desktop.patch
-Patch1:		lincity-ng-2.0-fix-str-fmt.patch
+Version:	2.11.1
+Release:	1
+Source0:	https://github.com/lincity-ng/lincity-ng/releases/download/lincity-ng-%{version}/lincity-ng-%{version}-Source.tar.gz
 License:	GPLv2+
-URL:		http://lincity-ng.berlios.de/
-Group:		Games/Other
-BuildRequires:	imagemagick
-BuildRequires:	jam
-BuildRequires:	mesa-common-devel
-BuildRequires:	SDL-devel
-BuildRequires:	SDL_gfx-devel
-BuildRequires:	SDL_image-devel
-BuildRequires:	SDL_mixer-devel
-BuildRequires:	SDL_ttf-devel
-BuildRequires:	libphysfs-devel
-BuildRequires:	libxml2-devel
-BuildRequires:	zlib-devel
+URL:		https://lincity-ng.berlios.de/
+Group:		Games/Strategy
+
+BuildRequires:	cmake
+BuildRequires:	pkgconfig(dri)
+BuildRequires:	pkgconfig(libgcrypt)
+BuildRequires:	pkgconfig(liblzma)
+BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:	pkgconfig(libxslt)
+BuildRequires:	pkgconfig(sdl2)
+BuildRequires:	pkgconfig(SDL2_mixer)
+BuildRequires:	pkgconfig(SDL2_image)
+BuildRequires:	pkgconfig(SDL2_ttf)
+BuildRequires:	pkgconfig(SDL2_gfx)
+BuildRequires:	pkgconfig(physfs)
+BuildRequires:	pkgconfig(zlib)
+# for compress .wav files
+BuildRequires:	vorbis-tools
+
 Obsoletes:	lincity
 Provides:	lincity
 
@@ -31,46 +35,33 @@ LinCity-NG is a polished and improved version of the classic LinCity game with
 a new iso-3D graphics engine, with a completely redone and modern GUI.
 
 %prep
-%setup -q
-%patch0 -p0
-%patch1 -p0
+%autosetup -p1 -n %{name}-%{version}-Source
+
+sed -i 's|-unknown)|-%{release})|' CMakeLists.txt
 
 %build
-%configure2_5x	--bindir=%{_gamesbindir} \
-		--datadir=%{_gamesdatadir} \
-		--with-gzip \
-		--with-svga \
-		--with-x \
-		--disable-rpath
-jam %_smp_mflags
+%cmake -DCMAKE_INSTALL_BINDIR=%{_bindir} \
+       -DCMAKE_INSTALL_APPDATADIR=%{_datadir}/%{name} \
+       -DCMAKE_INSTALL_MANDIR=%{_mandir}/man6 \
+       -DFULL_PROJECT_VERSION=%{version}-%{release} \
+       -DBUILD_SHARED_LIBS:BOOL=OFF \
+       -DCMAKE_POSITION_INDEPENDENT_CODE:BOOL=ON
+%make_build
 
 %install
-DESTDIR=%{buildroot} jam install
-mkdir -p %{buildroot}%{_miconsdir}
-convert -size 48x48 data/%{name}.png %{buildroot}%{_miconsdir}/%{name}.png
-mkdir -p %{buildroot}%{_iconsdir}
-convert -size 32x32 data/%{name}.png %{buildroot}%{_iconsdir}/%{name}.png
-mkdir -p %{buildroot}%{_liconsdir}
-convert -size 16x16 data/%{name}.png %{buildroot}%{_liconsdir}/%{name}.png
+%make_install -C build
 
-mkdir -p %buildroot%_datadir/applications
-mv %{buildroot}%{_gamesdatadir}/applications/* %{buildroot}%{_datadir}/applications
-
-mkdir -p %buildroot%_datadir/pixmaps
-mv %buildroot%{_gamesdatadir}/pixmaps/* %buildroot%_datadir/pixmaps
-
-rm -fr %buildroot%_gamesdatadir/doc
+# Use font from system, instead bundled by game
+ln -fs %{_datadir}/fonts/TTF/dejavu/DejaVuSans.ttf %{buildroot}%{_datadir}/%{name}/fonts/sans.ttf
 
 %files
-%doc COPYING* README RELNOTES TODO
-%{_gamesbindir}/*
-%{_datadir}/pixmaps/*
-%{_datadir}/applications/*
-%{_gamesdatadir}/%{name}
-%{_miconsdir}/%{name}.png
-%{_iconsdir}/%{name}.png
-%{_liconsdir}/%{name}.png
-
+%doc CHANGELOG.md README.md doc/*.xml
+%license COPYING*
+%{_bindir}/%{name}
+%{_iconsdir}/hicolor/*/apps/%{name}.png
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/%{name}/
+%{_mandir}/man6/lincity-ng.6.*
 
 %changelog
 * Sat Feb 05 2011 Funda Wang <fwang@mandriva.org> 2.0-5mdv2011.0
