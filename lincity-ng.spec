@@ -3,11 +3,11 @@ Name:		lincity-ng
 License:	GPLv2+
 URL:		https://lincity-ng.berlios.de/
 Group:		Games/Strategy
-Version:	2.11.1
+Version:	2.11.2
 Release:	1
 Source0:	https://github.com/lincity-ng/lincity-ng/releases/download/lincity-ng-%{version}/lincity-ng-%{version}-Source.tar.gz
 # Fix build: CPack readme resource file: "README.md" could not be found.
-Patch0:       https://github.com/lincity-ng/lincity-ng/pull/160.patch
+#Patch0:       https://github.com/lincity-ng/lincity-ng/pull/160.patch
 
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(dri)
