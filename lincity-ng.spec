@@ -59,6 +59,7 @@ ln -fs %{_datadir}/fonts/TTF/dejavu/DejaVuSans.ttf %{buildroot}%{_datadir}/%{nam
 
 %files
 %doc CHANGELOG.md README.md doc/*.xml
+%doc %{_datadir}/lincity-ng/COPYING*
 %license COPYING*
 %{_bindir}/%{name}
 %{_iconsdir}/hicolor/*/apps/%{name}.png
