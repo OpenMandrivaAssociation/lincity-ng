@@ -15,6 +15,7 @@ BuildRequires:       pkgconfig(fmt)
 BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libxml-2.0)
+BuildRequires:       pkgconfig(libxml++-5.0)
 BuildRequires:	pkgconfig(libxslt)
 BuildRequires:	pkgconfig(sdl2)
 BuildRequires:	pkgconfig(SDL2_mixer)
@@ -26,6 +27,7 @@ BuildRequires:	pkgconfig(zlib)
 # for compress .wav files
 BuildRequires:	vorbis-tools
 BuildRequires:       xsltproc
+BuildRequires:       libxml2-utils
 
 Obsoletes:	lincity
 Provides:	lincity
