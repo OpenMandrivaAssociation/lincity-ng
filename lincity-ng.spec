@@ -11,7 +11,7 @@ Source0:	https://github.com/lincity-ng/lincity-ng/releases/download/lincity-ng-%
 
 BuildRequires:	cmake
 BuildRequires:	pkgconfig(dri)
-Nio;dRequires:       pkgconfig(fmt)
+BuildRequires:       pkgconfig(fmt)
 BuildRequires:	pkgconfig(libgcrypt)
 BuildRequires:	pkgconfig(liblzma)
 BuildRequires:	pkgconfig(libxml-2.0)
