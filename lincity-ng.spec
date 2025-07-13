@@ -9,25 +9,25 @@ Source0:	https://github.com/lincity-ng/lincity-ng/releases/download/lincity-ng-%
 # Fix build: CPack readme resource file: "README.md" could not be found.
 #Patch0:       https://github.com/lincity-ng/lincity-ng/pull/160.patch
 
-BuildRequires:	cmake
-BuildRequires:	pkgconfig(dri)
-BuildRequires:       pkgconfig(fmt)
-BuildRequires:	pkgconfig(libgcrypt)
-BuildRequires:	pkgconfig(liblzma)
-BuildRequires:	pkgconfig(libxml-2.0)
-BuildRequires:       pkgconfig(libxml++-5.0)
-BuildRequires:	pkgconfig(libxslt)
-BuildRequires:	pkgconfig(sdl2)
-BuildRequires:	pkgconfig(SDL2_mixer)
-BuildRequires:	pkgconfig(SDL2_image)
-BuildRequires:	pkgconfig(SDL2_ttf)
-BuildRequires:	pkgconfig(SDL2_gfx)
-BuildRequires:	pkgconfig(physfs)
-BuildRequires:	pkgconfig(zlib)
+BuildRequires: cmake
+BuildRequires: pkgconfig(dri)
+BuildRequires: pkgconfig(fmt)
+BuildRequires: pkgconfig(libgcrypt)
+BuildRequires: pkgconfig(liblzma)
+BuildRequires: pkgconfig(libxml-2.0)
+BuildRequires: pkgconfig(libxml++-5.0)
+BuildRequires: pkgconfig(libxslt)
+BuildRequires: pkgconfig(sdl2)
+BuildRequires: pkgconfig(SDL2_mixer)
+BuildRequires: pkgconfig(SDL2_image)
+BuildRequires: pkgconfig(SDL2_ttf)
+BuildRequires: pkgconfig(SDL2_gfx)
+BuildRequires: pkgconfig(physfs)
+BuildRequires: pkgconfig(zlib)
 # for compress .wav files
-BuildRequires:	vorbis-tools
-BuildRequires:       xsltproc
-BuildRequires:       libxml2-utils
+BuildRequires: vorbis-tools
+BuildRequires: xsltproc
+BuildRequires: libxml2-utils
 
 Obsoletes:	lincity
 Provides:	lincity
@@ -46,6 +46,8 @@ a new iso-3D graphics engine, with a completely redone and modern GUI.
 sed -i 's|-unknown)|-%{release})|' CMakeLists.txt
 
 %build
+export CC=gcc
+export CXX=g++
 %cmake -DCMAKE_INSTALL_BINDIR=%{_bindir} \
        -DCMAKE_INSTALL_APPDATADIR=%{_datadir}/%{name} \
        -DCMAKE_INSTALL_MANDIR=%{_mandir}/man6 \
