@@ -3,7 +3,7 @@ Name:		lincity-ng
 License:	GPLv2+
 URL:		https://lincity-ng.berlios.de/
 Group:		Games/Strategy
-Version:	2.14.0
+Version:	2.14.2
 Release:	1
 Source0:	https://github.com/lincity-ng/lincity-ng/releases/download/lincity-ng-%{version}/lincity-ng-%{version}-Source.tar.gz
 # Fix build: CPack readme resource file: "README.md" could not be found.
