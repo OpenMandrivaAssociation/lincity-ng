@@ -63,13 +63,13 @@ export CXX=g++
 ln -fs %{_datadir}/fonts/TTF/dejavu/DejaVuSans.ttf %{buildroot}%{_datadir}/%{name}/fonts/sans.ttf
 
 %files
-%doc CHANGELOG.md README.md doc/*.xml
+%doc CHANGELOG.md README.md
 %doc %{_datadir}/doc/lincity-ng/COPYING*
 %doc %{_datadir}/doc/lincity-ng/CONTRIBUTING.md
 %license COPYING*
 %{_bindir}/%{name}
-%{_iconsdir}/hicolor/*/apps/%{name}.png
-%{_datadir}/applications/%{name}.desktop
+%{_iconsdir}/hicolor/*/apps/io.github.lincity_ng.lincity-ng.png
+%{_datadir}/applications/io.github.lincity_ng.lincity-ng.desktop
 %{_datadir}/%{name}/
 %{_mandir}/man6/lincity-ng.6.*
 
