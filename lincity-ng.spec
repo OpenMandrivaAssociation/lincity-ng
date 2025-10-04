@@ -70,6 +70,7 @@ ln -fs %{_datadir}/fonts/TTF/dejavu/DejaVuSans.ttf %{buildroot}%{_datadir}/%{nam
 %{_bindir}/%{name}
 %{_iconsdir}/hicolor/*/apps/io.github.lincity_ng.lincity-ng.png
 %{_datadir}/applications/io.github.lincity_ng.lincity-ng.desktop
+%{_datadir}/metainfo/io.github.lincity_ng.lincity-ng.metainfo.xml
 %{_datadir}/%{name}/
 %{_mandir}/man6/lincity-ng.6.*
 
